@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-gulp",
+  "version": "1.0.0",
+  "description": "practicando con gulp",
+  "main": "package.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "gulp sass",
+    "css": "gulp css",
+    "css:dev": "npm run sass && npm run css"
+  },
+  "author": "roccou",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2"
+  }
+}

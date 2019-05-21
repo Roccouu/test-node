@@ -1,0 +1,31 @@
+$edge: 100
+$gutter: .5
+
+// Permite convertir px a rem y rem a px.
+=pxtorem($p, $a)
+	$px: if($a == 0, 0, #{$a}px)
+	$rem: if($a == 0, 0, #{$a / $basefont}rem)
+	#{$p}: #{$px}
+	#{$p}: #{$rem}
+=remtopx($p, $a)
+	$px: if($a == 0, 0, #{$a * $basefont}px)
+	$rem: if($a == 0, 0, #{$a}rem)
+	#{$p}: #{$px}
+	#{$p}: #{$rem}
+
+// ---- Permite crear la clase one para diferentes media quieries.
+=rocss($media)
+	$per: '%'
+	@for $i from 1 through $edge
+		$j: #{$i * (100 / $edge)}
+		$w: abs($i - ($gutter * 2))
+		.#{$media}one-
+			&#{$j} // No gutter */
+				width: #{$j}#{$per}
+			&g-#{$j}  // Horizontal gutter */
+				margin-left: #{$gutter}#{$per}
+				margin-right: #{$gutter}#{$per}
+				width: #{$w}#{$per}
+			&gh-#{$j} // H&V gutter */
+				margin: #{$gutter}#{$per}
+				width: #{$w}#{$per}
